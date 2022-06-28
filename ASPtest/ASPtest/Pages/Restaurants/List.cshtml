@@ -6,6 +6,21 @@
 <h1>Restaurant</h1>
 @* When switching to writing in C sharp we can use the at thingy *@
 
+<form  method="get"> @* If we dont include action ="" then we say "the link you're on is receiving the request"*@
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" value="" name="searchTerm"/>
+         
+                <button>
+                   <span class="glyphicon glyphicon-search"></span> @*cant find glyphicons*@
+                    Search
+                </button>
+      
+        </div>
+    </div>
+</form>
+
+
 <table class="table">
     @foreach(var restaurant in Model.Restaurants)
     {

@@ -15,6 +15,8 @@ namespace ASPtest.Pages.Restaurants
         public string Message { get; set; } //Information that the View is going to "consume" (public)
         public string NewMessage { get; set; }
         public IEnumerable<Restaurant> Restaurants { get; set; }
+        [BindProperty (SupportsGet=true)]
+        public string SearchTerm { get; set; }
         private readonly IRestaurantData restaurantData;
         public ListModel(IConfiguration config, IRestaurantData restaurantData) //Page uses these services to fulfill the onGet Method
         {
@@ -22,11 +24,12 @@ namespace ASPtest.Pages.Restaurants
             this.restaurantData = restaurantData; //Don't forget to instantiate
         }
 
-        public void OnGet()
+        public void OnGet()//Move information from request into a model binder
         {
+           
             Message = "My Restaurant";
             NewMessage = config["Message"];
-            Restaurants = restaurantData.GetAll();
+            Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
         //Page Model is responsible for fetching information
     }
