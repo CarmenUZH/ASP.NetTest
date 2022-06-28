@@ -5,7 +5,25 @@
 @*Razor Page is strictly about displaying*@
 <h1>Restaurant</h1>
 @* When switching to writing in C sharp we can use the at thingy *@
+
+<table class="table">
+    @foreach(var restaurant in Model.Restaurants)
+    {
+        <tr>
+            <td>
+                @restaurant.Name
+            </td>
+            <td>
+                @restaurant.Location
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+
 @*Here we are getting the Message defined in List.cshtml.cs (Our Model)*@
-@Model.Message 
+<div>@Model.Message 
 </br>
-@Model.NewMessage
+@Model.NewMessage</div>

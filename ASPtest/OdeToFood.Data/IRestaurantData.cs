@@ -1,7 +1,9 @@
-﻿using OdeToFood.Core; //Add refrence!!
+﻿using System.Linq; //Important for the Orderby
+using OdeToFood.Core; //Add refrence!!
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 
 namespace OdeToFood.Data
 {
@@ -12,7 +14,7 @@ namespace OdeToFood.Data
     }
     public class InMemoryRestaurantData : IRestaurantData
     {
-        private List<Restaurant> restaurants;
+        public List<Restaurant> restaurants;
 
         public InMemoryRestaurantData()
         {
@@ -25,7 +27,9 @@ namespace OdeToFood.Data
         }
         public IEnumerable<Restaurant> GetAll()
         {
-            throw new NotImplementedException();
+            return from r in restaurants
+                   orderby r.Name
+                   select r;
         }
     }
 }
