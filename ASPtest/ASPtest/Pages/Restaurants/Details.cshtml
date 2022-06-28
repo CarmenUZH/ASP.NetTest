@@ -1,0 +1,22 @@
+﻿@page "{restaurantId}"
+@*You should be able to also define what restaurant ID is but i cant manage that for some reason*@
+@model ASPtest.Pages.Restaurants.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>@Model.MyRestaurant.Name</h2>
+<div>Id: @Model.MyRestaurant.Id</div>
+<div>Location: @Model.MyRestaurant.Location</div>
+<div>Animatronics: @Model.MyRestaurant.Animatronics</div>
+<div>Food: @Model.MyRestaurant.Food</div>
+<br/>
+<div>Deaths: @Model.MyRestaurant.Deaths</div>
+<br/>
+<a asp-page="./List" class="styledbutton"> Back to all Restaurants</a> @*Asp page is basically our href in C*@
+
+
+@*style tag*@
+ <style type="text/css"> 
+    .styledbutton 
+    { border: solid 1px silver; background: blue; color:aquamarine; border-radius: 5px;}    
+    </style>

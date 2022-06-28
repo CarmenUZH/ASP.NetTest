@@ -10,6 +10,9 @@ namespace OdeToFood.Core //New class for Restaurants
         public string Name { get; set; }
         public string Location { get; set; }
         public FoodType Food { get; set; }
+        public int Deaths { get; set; }
+        public int Animatronics { get; set; }
+
 
     }
 }

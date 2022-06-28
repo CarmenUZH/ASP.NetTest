@@ -9,7 +9,7 @@
 <form  method="get"> @* If we dont include action ="" then we say "the link you're on is receiving the request"*@
     <div class="form-group">
         <div class="input-group">
-            <input type="search" class="form-control" value="" name="searchTerm"/>
+            <input type="search" class="form-control" asp-for="SearchTerm"/> @*asp-for: Allows us to use and display search termThis input is for the following thing that you can find in the model*@
          
                 <button>
                    <span class="glyphicon glyphicon-search"></span> @*cant find glyphicons*@
@@ -30,6 +30,18 @@
             </td>
             <td>
                 @restaurant.Location
+            </td>
+            @* This doesnt work with our detail page anymore because the way we link it has been changed, but im keeping it in just so you know
+            <td>
+                <a class="btn btn-lg" style="background-color:burlywood" href="/Restaurants/Details?restaurantId=@restaurant.Id"> 
+                    <i class="glyphicon glyphicon-zoom-in"> Link 1</i>
+                </a>
+            </td>
+            *@
+            <td>
+                <a class="btn btn-lg" style="background-color: cornsilk" asp-page="./Details" asp-route-restaurantId="@restaurant.Id"> @*Two types of linking*@
+                    <i class="glyphicon glyphicon-zoom-in">Link 2</i>
+                </a>
             </td>
         </tr>
     }

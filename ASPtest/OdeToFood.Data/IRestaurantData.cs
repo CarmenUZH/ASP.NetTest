@@ -21,9 +21,9 @@ namespace OdeToFood.Data
         {
             restaurants = new List<Restaurant>()
             {
-                new Restaurant{Id=1, Name="Freddies",Location="America", Food=FoodType.Garbage},
-                new Restaurant{Id=2, Name="Circus Baby", Location="Under my house", Food=FoodType.None},
-                new Restaurant{Id=3, Name="Pizzaplex", Location="Over my house", Food = FoodType.French}
+                new Restaurant{Id=1, Name="Freddies",Location="America", Food=FoodType.Garbage, Deaths=5, Animatronics=5},
+                new Restaurant{Id=2, Name="Circus Baby", Location="Under my house", Food=FoodType.None, Deaths=1, Animatronics=4},
+                new Restaurant{Id=3, Name="Pizzaplex", Location="Over my house", Food = FoodType.French, Deaths=0, Animatronics=10}
             };
         }
         public IEnumerable<Restaurant> GetAll()
