@@ -2,4 +2,10 @@
 @model ASPtest.Pages.Restaurants.ListModel
 @{
 }
+@*Razor Page is strictly about displaying*@
 <h1>Restaurant</h1>
+@* When switching to writing in C sharp we can use the at thingy *@
+@*Here we are getting the Message defined in List.cshtml.cs (Our Model)*@
+@Model.Message 
+</br>
+@Model.NewMessage
