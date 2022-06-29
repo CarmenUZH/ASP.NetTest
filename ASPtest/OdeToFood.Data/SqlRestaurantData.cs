@@ -43,6 +43,11 @@ namespace OdeToFood.Data
             return db.Restaurant.Find(id); //Automatically knows how to find it by primary key ID
         }
 
+        public int GetCountOfRestaurants()
+        {
+            return db.Restaurant.Count();
+        }
+
         public IEnumerable<Restaurant> GetRestaurantsByName(string name)
         {
             var query = from r in db.Restaurant 

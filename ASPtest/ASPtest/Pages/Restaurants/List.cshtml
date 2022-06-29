@@ -1,6 +1,7 @@
 ﻿@page
 @model ASPtest.Pages.Restaurants.ListModel
 @{
+    ViewData["Title"] = "Restaurant List";
 }
 @*Razor Page is strictly about displaying*@
 <h1>Restaurant</h1>
@@ -21,7 +22,7 @@
 </form>
 
 
-<table class="table">
+@*<table class="table">
     @foreach(var restaurant in Model.Restaurants)
     {
         <tr>
@@ -31,29 +32,49 @@
             <td>
                 @restaurant.Location
             </td>
-            @* This doesnt work with our detail page anymore because the way we link it has been changed, but im keeping it in just so you know
+            /* This doesnt work with our detail page anymore because the way we link it has been changed, but im keeping it in just so you know
             <td>
                 <a class="btn btn-lg" style="background-color:burlywood" href="/Restaurants/Details?restaurantId=@restaurant.Id"> 
                     <i class="glyphicon glyphicon-zoom-in"> Link 1</i>
                 </a>
             </td>
-            *@
+            */
             <td>
-                <a class="btn btn-lg" style="background-color: cornsilk" asp-page="./Details" asp-route-restaurantId="@restaurant.Id"> @*Two types of linking*@
-                    <i class="glyphicon glyphicon-zoom-in">Details</i>
+                <a class="btn btn-lg" style="background-color: cornflowerblue; color:white" asp-page="./Details" asp-route-restaurantId="@restaurant.Id"> 
+                    <i class="glyphicon glyphicon-zoom-in"></i>
                 </a>
-                <a class="btn btn-lg" style="background-color: cornsilk" asp-page="./Edit" asp-route-restaurantId="@restaurant.Id"> @*Two types of linking*@
-                    <i class="glyphicon glyphicon-zoom-in">Edit</i>
+                <a class="btn btn-lg" style="background-color: cornsilk" asp-page="./Edit" asp-route-restaurantId="@restaurant.Id"> 
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+                <a class="btn btn-lg" style="color: coral" asp-page="./Delete" asp-route-restaurantId="@restaurant.Id"> 
+                    <i class="glyphicon glyphicon-remove"></i>
                 </a>
             </td>
         </tr>
     }
 </table>
+*@
 
-<a asp-page=".\Create" class="btn btn-secondary">Add new Restaurant</a>
+@foreach(var restaurant in Model.Restaurants)
+{
+    <partial name ="_Summary" model="restaurant"/>
+}
+<a asp-page=".\Create" class="btn btn-secondary" style="margin-bottom:100px">Add new Restaurant</a>
+@if (TempData["DeletedMessage"] != null)
+{
+    <div class="alert alert-info">@TempData["DeletedMessage"]</div> @*There is a different way to do this but i want to eat lunch now*@
+}
 
+@section footer{
+    <div class="container pleadingtext">Stop killing kids, please. Im running out of pizzaria names</div>
+}
 
-@*Here we are getting the Message defined in List.cshtml.cs (Our Model)*@
-<div>@Model.Message 
+@*style tag*@
+ <style type="text/css"> 
+    .pleadingtext 
+    { margin-left: auto; margin-right:auto; display:block; color:darkred; }    
+    </style>
+@*Here we are getting the Message defined in List.cshtml.cs (Our Model)
+<div>
 <br/>
-@Model.NewMessage</div>
+@Model.NewMessage</div>*@

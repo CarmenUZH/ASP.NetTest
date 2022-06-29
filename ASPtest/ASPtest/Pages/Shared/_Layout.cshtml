@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ASPtest</title>
+    <title>@ViewData["Title"] (Not for murderers)</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -33,12 +34,16 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+           
         </main>
+       
     </div>
 
     <footer class="border-top footer text-muted">
+    
+        @RenderSection("footer",required:false)
         <div class="container">
-            &copy; 2022 - ASPtest - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 1987 - Please don't use this site if you murder kids in pizzarias please im begging <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 

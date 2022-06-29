@@ -1,0 +1,23 @@
+﻿@page "{restaurantId}"
+@model ASPtest.Pages.Restaurants.DeleteModel
+@{
+    Layout = "_LayoutDelete";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-widt"/>
+        <title>DELETE</title>
+    </head>
+    <body>
+        <h2>
+            Delete!
+        </h2>
+        <div class="alert alert-danger">Are you sure you want to do this, Michael?</div>
+        <p>DELETE @Model.restaurant.Name ?</p>
+        <form method="post">
+            <button type="submit" class="btn btn-danger">I know what I have to do</button>
+            <a asp-page="List" class="btn btn-default">Back out.</a>
+        </form>
+    </body>
+</html>

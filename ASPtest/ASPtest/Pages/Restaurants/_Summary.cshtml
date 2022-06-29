@@ -1,0 +1,22 @@
+﻿@using OdeToFood.Core
+@model Restaurant
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>@Model.Name</h4>
+    </div>
+    <div class="panel-body">
+        <span style="display: block">Location: @Model.Location</span>
+        <span>Cuisine: @Model.Food</span>
+    </div>
+    <div>
+              <a class="btn btn-lg" style="background-color: white; color:lightblue" asp-page="./Details" asp-route-restaurantId="@Model.Id"> @*Two types of linking*@
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+                </a>
+                <a class="btn btn-lg" style="background-color: lightyellow" asp-page="./Edit" asp-route-restaurantId="@Model.Id"> @*Two types of linking*@
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </a>
+                <a class="btn btn-lg" style="color: brown" asp-page="./Delete" asp-route-restaurantId="@Model.Id"> @*Two types of linking*@
+                    <i class="glyphicon glyphicon-remove"></i>
+                </a>
+    </div>
+</div>
