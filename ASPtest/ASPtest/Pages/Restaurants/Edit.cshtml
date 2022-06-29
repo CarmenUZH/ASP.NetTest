@@ -19,6 +19,7 @@
       <div class="form-group">
         <label asp-for="Restaurant.Food"></label>
       @* <select asp-for="Restaurant.Food" class="form-control" asp-items="Html.GetEnumSelectList<FoodType>()"> This works for generating a list of selections for the Food type, but anytime i can do something like this in the page model instead of the View, i should do it*@
+        <select asp-for="Restaurant.Food" class="form-control" asp-items="Model.Cuisines"> @*Asp-for always asumes that im working on something thats on my model, asp-items does not*@
       </select>
     </div>
     <button type="submit" class="btn btn-primary" style="accent-color:blue">Save Changes</button>
