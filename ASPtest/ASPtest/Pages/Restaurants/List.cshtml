@@ -40,7 +40,10 @@
             *@
             <td>
                 <a class="btn btn-lg" style="background-color: cornsilk" asp-page="./Details" asp-route-restaurantId="@restaurant.Id"> @*Two types of linking*@
-                    <i class="glyphicon glyphicon-zoom-in">Link 2</i>
+                    <i class="glyphicon glyphicon-zoom-in">Details</i>
+                </a>
+                <a class="btn btn-lg" style="background-color: cornsilk" asp-page="./Edit" asp-route-restaurantId="@restaurant.Id"> @*Two types of linking*@
+                    <i class="glyphicon glyphicon-zoom-in">Edit</i>
                 </a>
             </td>
         </tr>
