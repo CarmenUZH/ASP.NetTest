@@ -13,7 +13,7 @@ namespace OdeToFood.Data
         }
         public Restaurant Add(Restaurant newRestaurant)
         {
-           db.Restaurant.Add(newRestaurant);
+            db.Restaurant.Add(newRestaurant);
             return newRestaurant;
         }
 
@@ -34,7 +34,7 @@ namespace OdeToFood.Data
 
         public IEnumerable<Restaurant> GetAll()
         {
-             var restaurants = db.Restaurant;
+            var restaurants = db.Restaurant;
             return restaurants;
         }
 
@@ -50,8 +50,8 @@ namespace OdeToFood.Data
 
         public IEnumerable<Restaurant> GetRestaurantsByName(string name)
         {
-            var query = from r in db.Restaurant 
-                        where r.Name.StartsWith(name)||string.IsNullOrEmpty(name)
+            var query = from r in db.Restaurant
+                        where r.Name.StartsWith(name) || string.IsNullOrEmpty(name)
                         orderby r.Name
                         select r;
             return query;

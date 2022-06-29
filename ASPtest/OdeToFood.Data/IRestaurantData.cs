@@ -1,7 +1,5 @@
 ﻿using OdeToFood.Core; //Add refrence!!
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 
 namespace OdeToFood.Data
@@ -16,6 +14,6 @@ namespace OdeToFood.Data
         Restaurant Delete(int id);
         int GetCountOfRestaurants();
         int Commit();
-        
+
     }
 }

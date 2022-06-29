@@ -1,6 +1,6 @@
-﻿using System.Linq; //Important for the Orderby
-using OdeToFood.Core; //Add refrence!!
+﻿using OdeToFood.Core; //Add refrence!!
 using System.Collections.Generic;
+using System.Linq; //Important for the Orderby
 
 
 namespace OdeToFood.Data
@@ -38,8 +38,8 @@ namespace OdeToFood.Data
         public Restaurant Add(Restaurant newRestaurant)
         {
             restaurants.Add(newRestaurant);
-            newRestaurant.Id = restaurants.Max(r => r.Id)+1;//for testing purposes
-            return newRestaurant;   
+            newRestaurant.Id = restaurants.Max(r => r.Id) + 1;//for testing purposes
+            return newRestaurant;
         }
 
         public int Commit() //Doesnt mean anything until now
@@ -56,7 +56,7 @@ namespace OdeToFood.Data
         public IEnumerable<Restaurant> GetRestaurantsByName(string name)
         {
             return from r in restaurants
-                   where string.IsNullOrEmpty(name)||r.Name.StartsWith(name)
+                   where string.IsNullOrEmpty(name) || r.Name.StartsWith(name)
                    orderby r.Name
                    select r;
         }
@@ -64,7 +64,7 @@ namespace OdeToFood.Data
         public Restaurant Delete(int id)
         {
             var restaurant = restaurants.FirstOrDefault(r => r.Id == id);
-            if(restaurant != null)
+            if (restaurant != null)
             {
                 restaurants.Remove(restaurant);
             }

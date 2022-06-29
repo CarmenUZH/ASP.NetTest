@@ -35,13 +35,13 @@ namespace ASPtest.Pages.Restaurants
             {
                 Cuisines = htmlHelper.GetEnumSelectList<FoodType>();
                 return Page();
-               
+
             }
-          
+
             restaurantData.Add(Restaurant);
             restaurantData.Commit(); //flush changes into datasource
             TempData["Message"] = "Restaurant saved!";
-            return RedirectToPage("./Details", new { restaurantId = Restaurant.Id});
+            return RedirectToPage("./Details", new { restaurantId = Restaurant.Id });
 
         }
     }

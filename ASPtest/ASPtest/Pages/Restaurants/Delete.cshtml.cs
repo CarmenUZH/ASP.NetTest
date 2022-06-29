@@ -21,7 +21,7 @@ namespace ASPtest.Pages.Restaurants
             restaurant = restaurantData.GetById(restaurantId);
             if (restaurant == null)
             {
-                return RedirectToPage ("./NotFound");
+                return RedirectToPage("./NotFound");
             }
             return Page();
         }
