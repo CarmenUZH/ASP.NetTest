@@ -35,12 +35,18 @@ namespace ASPtest.Pages.Restaurants
 
         public IActionResult OnPost()
         {
-            //Model validation to check for valid input (can be done with if else statements too)
-
+           // var attval = ModelState["Deaths"].AttemptedValue; //Model State saves all the information about what the user tried to input
+            if (ModelState.IsValid)
+            {
+                //Model validation to check for valid input in Restaurant.cs (can be done with if else statements too)
+  
+                Restaurant = restaurantData.Update(Restaurant);
+                restaurantData.Commit();
+                return RedirectToPage("./Details",new { restaurantId = Restaurant.Id });
+            }
             Cuisines = htmlHelper.GetEnumSelectList<FoodType>();
-            Restaurant = restaurantData.Update(Restaurant);
-         restaurantData.Commit();
-         return Page();
+            return Page();
+            
         }
     }
 }
