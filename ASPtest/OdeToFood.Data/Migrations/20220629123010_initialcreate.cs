@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
-//Dont fuckint trust Databases
+//See Database with View
 
 namespace OdeToFood.Data.Migrations
 {
