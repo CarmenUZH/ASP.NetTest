@@ -15,6 +15,10 @@
 <br/>
 <a asp-page="./List" class="styledbutton"> Back to all Restaurants</a> @*Asp page is basically our href in C*@
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">"Restaurant created! :D wowie"</div> @*There is a different way to do this but i want to eat lunch now*@
+}
 
 @*style tag*@
  <style type="text/css"> 

@@ -1,0 +1,32 @@
+﻿@page 
+@using OdeToFood.Core
+
+@model ASPtest.Pages.Restaurants.CreateModel
+@{
+}
+<h3>Create the Restaurant: @Model.Restaurant.Name </h3>
+<form method="post">
+
+    <input type="hidden" asp-for="Restaurant.Id"/>
+    <div class="form-group">
+        <label asp-for="Restaurant.Name"></label>
+        <input asp-for="Restaurant.Name" class="form-control" /> @*asp-for automatically knows what input type you want*@
+        <span class="text-danger" asp-validation-for="@Model.Restaurant.Name"></span>
+    </div>
+      <div class="form-group">
+        <label asp-for="Restaurant.Deaths"></label>
+        <input asp-for="Restaurant.Deaths" class="form-control" /> @*asp-for automatically knows what input type you want*@
+             <span class="text-danger" asp-validation-for="Restaurant.Deaths"></span>
+    </div>
+      <div class="form-group">
+        <label asp-for="Restaurant.Food"></label>
+    <select asp-for="Restaurant.Food" class="form-control" asp-items="Html.GetEnumSelectList<FoodType>()">  @*This solution isn't ideal, see "Edit" page for prettier solution*@
+           <span class="text-danger" asp-validation-for="Restaurant.Food"></span>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="accent-color:blue" >Save Changes</button>
+ 
+</form>
+
+<a asp-page="./List" class="styledbutton">Return to List instead</a>
