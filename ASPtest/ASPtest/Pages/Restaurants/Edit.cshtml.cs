@@ -12,13 +12,15 @@ namespace ASPtest.Pages.Restaurants
         private readonly IRestaurantData restaurantData;
         public Restaurant Restaurant {get; set;}
         public IEnumerable<SelectListItem> Cuisines { get; set; }
-        public EditModel(IRestaurantData restaurantData)
+
+        //Page uses these services to fulfill the onGet Method
+        public EditModel(IRestaurantData restaurantData, IHtmlHelper htmlHelper) //Get Html Helper here
         {
             this.restaurantData = restaurantData;
         }
         public IActionResult OnGet(int restaurantId)
         {
-            //HTML not available in page model
+            //HTML not available in page model by default, get IHtmlHelper
             Restaurant = restaurantData.GetById(restaurantId);
             if(Restaurant == null)
             {
