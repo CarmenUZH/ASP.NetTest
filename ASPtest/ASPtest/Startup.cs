@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OdeToFood.Data;
+using System;
 
 namespace ASPtest
 {
@@ -29,7 +31,7 @@ namespace ASPtest
             services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
             services.AddRazorPages();
             services.AddControllers();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,28 +39,44 @@ namespace ASPtest
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); //Remember the Middleware pipeline! Cares about outgoing respone
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("/Error"); //Userfriendly Error handler 
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
+            app.Use(SayHelloToMichael); //No matter what i do, this gets called first and nothing happens
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseNodeModules();
+            app.UseStaticFiles(); //Middleware component
+            app.UseNodeModules(); //He has "env" inside the brackets
             app.UseRouting();
             //He uses something that doesnt work for me (see useEndpoints)
 
-            app.UseAuthorization();
+            app.UseAuthorization();//For finding out who the user is (anything after this KNOWS who we're dealing with)
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+        }
+
+        private RequestDelegate SayHelloToMichael(RequestDelegate arg) //a request delicate is a method that takes an http context and returns a task
+        {
+            return async ctx => //Lamda expression
+            {
+                if (ctx.Request.Path.StartsWithSegments("/hello")) //ONLY show when link starts with /hello
+                {
+                    await ctx.Response.WriteAsync("Hello, Michael.");
+                }
+                else
+                {
+                    await arg(ctx); //send message along to next thing (loads page as usual)
+                }
+            };
         }
     }
 }
