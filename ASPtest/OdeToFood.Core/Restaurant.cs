@@ -12,7 +12,7 @@ namespace OdeToFood.Core //New class for Restaurants
         public string Location { get; set; }
         public FoodType Food { get; set; }
         [Required(ErrorMessage = "As fun as this may be, i dont believe you when you tell me that NOONE died here"), Range(0.00, 100.00, ErrorMessage = "Come on dude, Please don't murder the entire restaurant")]
-        public int Deaths { get; set; }
+        public int Deaths { get; set; } //Please don't think im weird, it's  video game refrence :(
         public int Animatronics { get; set; }
     }
 }
