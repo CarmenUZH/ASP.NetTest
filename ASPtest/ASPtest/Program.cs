@@ -5,7 +5,7 @@ namespace ASPtest
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args)//Like Java, needs to be there
         {
             CreateHostBuilder(args).Build().Run();
         }

@@ -1,0 +1,8 @@
+{
+  "name": "asptest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "datatables.net-bs": "^1.12.1"
+  }
+}

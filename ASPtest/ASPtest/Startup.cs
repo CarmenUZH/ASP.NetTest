@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +29,7 @@ namespace ASPtest
             services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
             services.AddRazorPages();
             services.AddControllers();
-            services.AddMvc();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +48,9 @@ namespace ASPtest
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseNodeModules();
             app.UseRouting();
+            //He uses something that doesnt work for me (see useEndpoints)
 
             app.UseAuthorization();
 
