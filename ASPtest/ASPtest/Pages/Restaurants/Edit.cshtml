@@ -44,5 +44,7 @@
     <button type="submit" class="btn btn-primary" style="accent-color:blue" >Save Changes</button>
  
 </form>
-
+@section Scripts{ @*Client side, "live" validation using the scripts*@
+    <partial name="_ValidationScriptsPartial"/>
+}
 <a asp-page="./List" class="styledbutton">Return to List instead</a>
