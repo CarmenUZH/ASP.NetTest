@@ -27,6 +27,8 @@ namespace ASPtest
             //  services.AddSingleton<IRestaurantData, InMemoryRestaurantData>(); //The "database"
             services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
             services.AddRazorPages();
+            services.AddControllers();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +55,7 @@ namespace ASPtest
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

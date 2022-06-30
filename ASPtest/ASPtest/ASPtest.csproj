@@ -30,7 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\R2 %28didnt manage to get scaffolding to run%29\" />
+    <Folder Include="Api\" />
+    <Folder Include="Pages\R2\" />
   </ItemGroup>
 
 </Project>

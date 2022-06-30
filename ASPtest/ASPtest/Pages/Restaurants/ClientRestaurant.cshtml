@@ -1,0 +1,14 @@
+﻿@page
+@model ASPtest.Pages.Restaurants.ClientRestaurantModel
+@{
+}
+@section Scripts{
+    <script>
+$(function() {
+    $.ajax("/api/restaurants/", { method: "get" }).then(function(response) {
+        //What do I do with this response
+        console.dir(response)
+    })
+})
+    </script>
+}
