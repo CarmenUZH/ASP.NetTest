@@ -25,8 +25,9 @@ namespace ASPtest
         {
             services.AddDbContextPool<OdeToFoodDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
+              options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
             });
+
             //  services.AddSingleton<IRestaurantData, InMemoryRestaurantData>(); //The "database"
             services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
             services.AddRazorPages();
