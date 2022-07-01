@@ -28,8 +28,8 @@ namespace ASPtest
               options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
             });
 
-            services.AddScoped<IRestaurantData, InMemoryRestaurantData>(); //The "database"
-            //services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
+            //services.AddScoped<IRestaurantData, InMemoryRestaurantData>(); //The "database"
+            services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
             services.AddRazorPages();
             services.AddControllers();
             services.AddMvc();
