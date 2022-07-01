@@ -4,6 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+	<Target Name="PostBuild" AfterTargets="ComputeFilesToPublis">
+		<Exec Command="npm install"/>
+	</Target>
+
+	<ItemGroup>
+		<Content Include="node_modules/**" CopyToOutputDirectory="PreserveNewest"/>
+	</ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
