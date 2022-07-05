@@ -94,7 +94,7 @@ namespace OdeToFood.Api
             _context.Restaurant.Add(restaurant);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant);
+            return CreatedAtAction("GetRestaurant", new { id = restaurant.Id }, restaurant); //You cant return Ok, Http rule
         }
 
         // DELETE: api/Restaurants/5
