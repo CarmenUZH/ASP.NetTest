@@ -36,5 +36,7 @@ namespace ASPtest.Pages.Restaurants
             Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
         //Page Model is responsible for fetching information
+
+   
     }
 }
