@@ -37,7 +37,7 @@ namespace OdeToFood.Api
                 return BadRequest(ModelState);
             }
 
-            var restaurant = await _context.Restaurant.FindAsync(id);
+            var restaurant = await _context.Restaurant.FindAsync(id); //FindAsync is automatic 
 
             if (restaurant == null)
             {
@@ -83,7 +83,7 @@ namespace OdeToFood.Api
         }
 
         // POST: api/Restaurants
-        [HttpPost]
+        [HttpPost] //You can't define the ID because the database handles that!
         public async Task<IActionResult> PostRestaurant([FromBody] Restaurant restaurant)
         {
             if (!ModelState.IsValid)

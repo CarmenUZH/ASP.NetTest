@@ -1,12 +1,11 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
-using System.Threading.Tasks;
 
 namespace ASPtest
 {
     public class SendingMail
     {
-        public static async Task sendMailAsync()
+        public static void sendMail()
         {
             MimeMessage message = new MimeMessage();
             message.From.Add(new MailboxAddress("CarmenatWork", "carmen.asptest@outlook.com"));
@@ -22,9 +21,9 @@ namespace ASPtest
             SmtpClient client = new SmtpClient();
             try
             {
-                await client.Connect("smtp-mail.outlook.com", 465, true);
-                await client.Authenticate("carmen.asptest@outlook.com", "MyPassword123");
-                await client.Send(message);
+                client.Connect("smtp-mail.outlook.com", 465, true);
+                client.Authenticate("carmen.asptest@outlook.com", "MyPassword123");
+                client.Send(message);
                 System.Diagnostics.Debug.WriteLine("You did something!");
             }
             catch (System.Exception)
