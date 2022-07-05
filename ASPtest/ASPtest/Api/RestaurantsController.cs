@@ -84,7 +84,7 @@ namespace OdeToFood.Api
 
         // POST: api/Restaurants
         [HttpPost] //You can't define the ID because the database handles that!
-        public async Task<IActionResult> PostRestaurant([FromBody] Restaurant restaurant)
+        public async Task<IActionResult> PostRestaurant([FromBody] Restaurant restaurant) //From Body important!
         {
             if (!ModelState.IsValid)
             {
