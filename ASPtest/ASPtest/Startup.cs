@@ -52,7 +52,7 @@ namespace ASPtest
             app.UseHttpsRedirection();
             app.UseStaticFiles(); //Middleware component
             app.UseNodeModules(); //He has "env" inside the brackets
-            app.UseRouting();
+            app.UseRouting();//Rout individual calls to specific endpoints
             //He uses something that doesnt work for me (see useEndpoints)
 
             app.UseAuthorization();//For finding out who the user is (anything after this KNOWS who we're dealing with)
