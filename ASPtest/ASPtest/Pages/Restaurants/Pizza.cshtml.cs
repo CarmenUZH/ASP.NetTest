@@ -38,8 +38,6 @@ namespace ASPtest.Pages.Restaurants
 
             pizzaData.Add(pizza);
             pizzaData.Commit(); //flush changes into datasource
-            System.Diagnostics.Debug.WriteLine($"added: {pizza}");
-            System.Diagnostics.Debug.WriteLine($"{pizzaData.GetCountOfPizzas()}");
             return RedirectToPage("./ShowPizzas");
 
         }
