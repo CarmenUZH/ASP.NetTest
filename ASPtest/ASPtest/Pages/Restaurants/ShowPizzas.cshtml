@@ -1,0 +1,15 @@
+﻿@page
+@model ASPtest.Pages.Restaurants.ShowPizzasModel
+@{
+}
+<h3>You like the following Pizzas:</h3>
+        <table class="table">
+    @foreach(var pizza in Model.Pizzas)
+    {
+        <tr>
+            <td>
+                @pizza
+            </td>
+        </tr>
+    }
+</table>

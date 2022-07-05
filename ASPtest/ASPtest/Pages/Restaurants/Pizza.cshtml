@@ -3,3 +3,10 @@
 @{
 }
 <h2>IT'S PIZZA TIME</h2>
+<div>What is your favourite Pizza? Let us know:</div>
+<form method="post"> @*DONT FORGET*@
+<label>Pizza Type</label>
+<input asp-for="pizza" type="text" /> @*asp-for is the glue that binds*@
+<button type="submit" class="btn btn-primary" style="accent-color:blue" >Save Changes</button>
+</form>
+

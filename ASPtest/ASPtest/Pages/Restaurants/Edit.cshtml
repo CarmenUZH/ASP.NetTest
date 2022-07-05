@@ -6,6 +6,7 @@
 }
 <h3>Edit the Restaurant: @Model.Restaurant.Name </h3>
 <form method="post">
+    <p asp-validation-summary="All"></p>
 
     <input type="hidden" asp-for="Restaurant.Id"/>
     <div class="form-group">

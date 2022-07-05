@@ -5,11 +5,11 @@
   </PropertyGroup>
 
 	<Target Name="PostBuild" AfterTargets="ComputeFilesToPublis">
-		<Exec Command="npm install"/>
+		<Exec Command="npm install" />
 	</Target>
 
 	<ItemGroup>
-		<Content Include="node_modules/**" CopyToOutputDirectory="PreserveNewest"/>
+		<Content Include="node_modules/**" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 	
   <ItemGroup>

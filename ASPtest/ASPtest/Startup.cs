@@ -28,7 +28,7 @@ namespace ASPtest
               options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
             });
 
-            //services.AddScoped<IRestaurantData, InMemoryRestaurantData>(); //The "database"
+            services.AddSingleton<IPizzaData, InMemoryPizzaData>(); //The "database"
             services.AddScoped<IRestaurantData, SqlRestaurantData>(); //The real Database
             services.AddRazorPages();
             services.AddControllers();
