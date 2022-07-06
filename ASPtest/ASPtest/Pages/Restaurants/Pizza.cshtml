@@ -2,11 +2,13 @@
 @model ASPtest.Pages.Restaurants.PizzaModel //Defines how to get to the page (localhorst/Restaurants/Pizza)
 @{
 }
-<h2>IT'S PIZZA TIME</h2>
-<div>What is your favourite Pizza? Let us know:</div>
+<div style="margin-left:auto; margin-right:auto; text-align:center">
+<h1 style="font-size:60px">IT'S PIZZA TIME</h1>
+<div style="font-size:40px">What is your favourite Pizza? Let us know:</div>
 <form method="post"> @*DONT FORGET*@
 <label>Pizza Type</label>
 <input asp-for="pizza" type="text" /> @*asp-for is the glue that binds*@
 <button type="submit" class="btn btn-primary" style="accent-color:blue" >Save Changes</button>
 </form>
+</div>
 

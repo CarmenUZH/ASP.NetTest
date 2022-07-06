@@ -21,6 +21,14 @@
     </div>
 </form>
 
+<div class="questiondiv panel panel-default">
+    <h4 style="margin-left:auto; margin-right:auto">What kinds of pizzas do you like?</h4>
+    <p>Tell us in this short, 1 question quiz!</p>
+    <a class="btn btn-lg" style="background-color: darkblue; color:lightblue" href="/Restaurants/Pizza" > 
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+                </a>
+</div>
+
 
 @*<table class="table">
     @foreach(var restaurant in Model.Restaurants)
@@ -73,6 +81,18 @@
  <style type="text/css"> 
     .pleadingtext 
     { margin-left: auto; margin-right:auto; display:block; color:darkred; }    
+    </style>
+
+    <style type="text/css">
+    .questiondiv{
+        background-color:skyblue; 
+        text-align:center; 
+        float: left;
+        margin-left: -20em;
+        padding:3px;
+        width:15em;
+        border-radius:10px;
+    }    
     </style>
 @*Here we are getting the Message defined in List.cshtml.cs (Our Model)
 <div>
