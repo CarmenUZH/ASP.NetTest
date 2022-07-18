@@ -1,0 +1,174 @@
+﻿@page
+@model ASPtest.Pages.Restaurants.MyTableModel
+@{
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form id="frm" method="post">
+   <caption><h1>In-Place Edit Example</h1></caption>
+
+  <table border="1" style="width:75%;margin:4px auto">
+
+    <tr>
+
+      <th></th>
+
+      <th>Name</th>
+
+      <th>IsCertified</th>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <a class="edit" href="javascript:">Edit</a>
+      </td>
+
+      <td>
+        Margerita
+      </td>
+
+      <td>
+        No
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <a class="edit" href="javascript:">Edit</a>
+      </td>
+
+      <td>
+        Salami
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+    </tr>
+
+     <tr>
+
+      <td>
+        <a class="edit" href="javascript:">Edit</a>
+      </td>
+
+      <td>
+        Garbage
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+    </tr>
+
+    <tr hidden id="boxes">
+
+      <td>
+        <a href="javascript:" id="aUpdate">Update</a>
+        |
+        <a href="javascript:" id="aCancel">Cancel</a>
+      </td>
+
+      <td>
+        <input id="txt" name="txt" style="width:99%;" />
+      </td>
+
+      <td>
+        <input type="checkbox" name="chk" id="chk" /> 
+        <label>Certified</label>
+      </td>
+
+    </tr>
+  </table>
+</form>
+
+<script type="text/javascript">
+
+  (function () {
+
+    // currently being edited tr row 
+    let currentTR;
+
+    // query all  "edit" anchors 
+    document.querySelectorAll("a.edit").forEach(a => {
+
+      // attach click event handler to each "edit" 
+      a.addEventListener("click", function () {
+
+        // cancel any pending edits 
+        if (currentTR) {
+
+          aCancel.click();
+
+        }
+
+        // find the parent tr of the clicked edit 
+        currentTR = a.closest("tr");
+
+        // hide the tr 
+        currentTR.hidden = true;
+
+        // insert the boxes along it 
+        currentTR.insertAdjacentElement('beforebegin', boxes);
+
+        // fill data into the inputs 
+        txt.value = currentTR.cells[1].innerText.trim();
+        chk.checked = currentTR.cells[2].innerText.trim().startsWith("Y");
+
+        // show the boxes 
+        boxes.hidden = false;
+
+      });
+
+    });
+
+    aCancel.addEventListener("click", function () {
+
+      boxes.hidden = true;
+
+      currentTR.hidden = false;
+
+    });
+
+    aUpdate.addEventListener("click", function () {
+
+      // aysnchronous POST the form inputs 
+      fetch(frm.action,
+        {
+          method: frm.method,
+
+          body: new FormData(frm)
+        }
+      )
+        // if any exceptions - log them 
+        .catch(err => console.log("network error: " + err))
+
+        .then(response => {
+
+          // read json from the response stream 
+          // we recommend checking the status code 
+          // at this point 
+          response.json().then(data => {
+
+            // hide the input controls 
+            boxes.hidden = true;
+
+            // set the values of td 
+            currentTR.cells[1].innerText = txt.value;
+            currentTR.cells[2].innerText = chk.checked ? "Yes" : "No";
+
+            // show the td 
+            currentTR.hidden = false;
+          });
+        });
+    });
+  })();
+
+</script>
+}
