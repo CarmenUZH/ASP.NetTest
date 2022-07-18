@@ -8,6 +8,7 @@
    <caption><h1>In-Place Edit Example</h1></caption>
 
   <table border="1" style="width:75%;margin:4px auto">
+  
 
     <tr>
 
@@ -18,54 +19,33 @@
       <th>IsCertified</th>
 
     </tr>
-
-    <tr>
-
-      <td>
-        <a class="edit" href="javascript:">Edit</a>
-      </td>
-
-      <td>
-        Margerita
-      </td>
-
-      <td>
-        No
-      </td>
-
-    </tr>
-
-    <tr>
-
-      <td>
-        <a class="edit" href="javascript:">Edit</a>
-      </td>
-
-      <td>
-        Salami
-      </td>
-
-      <td>
-        Yes
-      </td>
-
-    </tr>
-
      <tr>
 
-      <td>
+        <td>
         <a class="edit" href="javascript:">Edit</a>
       </td>
 
-      <td>
-        Garbage
-      </td>
+      <th></th>
 
-      <td>
-        Yes
-      </td>
+      <th></th>
 
     </tr>
+     @foreach(var pizza in Model.Pizzas)
+    {
+        <tr>
+         <td>
+        <a class="edit" href="javascript:">Edit</a>
+      </td>
+            <td>
+                @pizza
+            </td>
+             <td>
+        No
+      </td>
+        </tr>
+    }
+    <tr>
+
 
     <tr hidden id="boxes">
 
