@@ -43,7 +43,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\R2\" />
-    <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
 </Project>
