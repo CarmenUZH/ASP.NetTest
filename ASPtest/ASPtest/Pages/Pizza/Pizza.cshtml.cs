@@ -1,3 +1,4 @@
+using ASPtest.Pages.Restaurants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -6,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using OdeToFood.Data;
 using System.Collections.Generic;
 
-namespace ASPtest.Pages.Restaurants
+namespace ASPtest.Pages.Pizza
 {
     public class PizzaModel : PageModel
     {

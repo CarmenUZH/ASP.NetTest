@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using OdeToFood.Data;
 using System.Collections.Generic;
 
-namespace ASPtest.Pages.Restaurants
+namespace ASPtest.Pages.Pizza
 {
     public class ShowPizzasModel : PageModel
     {

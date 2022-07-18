@@ -19,7 +19,7 @@ namespace ASPtest
                 host.Run();
         }
 
-        private static void MigrateDatabase(IHost host)
+        private static void MigrateDatabase(IHost host) //Get the Database
         {
             using(var scope = host.Services.CreateScope())
             {
