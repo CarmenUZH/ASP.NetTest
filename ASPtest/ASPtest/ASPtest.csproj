@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
-	<Target Name="PostBuild" AfterTargets="ComputeFilesToPublis">
+	<Target Name="PostBuild" AfterTargets="ComputeFilesToPublish">
 		<Exec Command="npm install" />
 	</Target>
 
