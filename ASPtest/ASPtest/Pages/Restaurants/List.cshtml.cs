@@ -19,18 +19,18 @@ namespace ASPtest.Pages.Restaurants
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
         private readonly IRestaurantData restaurantData;
-       // private readonly ILogger<ListModel> logger;
+       private readonly ILogger<ListModel> logger;
 
-        public ListModel( IRestaurantData restaurantData) //Page uses these services to fulfill the onGet Method
+        public ListModel( IRestaurantData restaurantData, ILogger<ListModel> logger) //Page uses these services to fulfill the onGet Method
         {
             //this.config = config;
             this.restaurantData = restaurantData; //Don't forget to instantiate
-            //this.logger = logger;
+            this.logger = logger;
         }
 
         public void OnGet()//Move information from request into a model binder
         {
-            //logger.LogError("Hello from ListModel");
+            logger.LogError("Hello from ListModel");
             //Message = "My Restaurant";
             //NewMessage = config["Message"];
             Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
