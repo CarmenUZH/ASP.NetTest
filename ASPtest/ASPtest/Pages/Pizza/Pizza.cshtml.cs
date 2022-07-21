@@ -1,32 +1,26 @@
-using ASPtest.Pages.Restaurants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using OdeToFood.Data;
+using System.Collections.Generic;
 
 namespace ASPtest.Pages.Pizza
 {
     public class PizzaModel : PageModel
     {
         private readonly IPizzaData pizzaData;
-        private readonly ILogger<ListModel> logger;
-        private readonly IConfiguration config;
+        public List<string> Pizzas { get; set; } //Important to make this get; set; so that you always get it
 
-        private readonly IHtmlHelper htmlHelper;
 
         [BindProperty]
         public string pizza { get; set; }
 
-        public PizzaModel(IConfiguration config, IPizzaData pizzaData, ILogger<ListModel> logger) //Page uses these services to fulfill the onGet Method
+        public PizzaModel(IPizzaData pizzaData) //Page uses these services to fulfill the onGet Method
         {
-            this.config = config;
             this.pizzaData = pizzaData; //Don't forget to instantiate
-            this.logger = logger;
         }
         public void OnGet()
         {
+            Pizzas = pizzaData.GetAll();
         }
         public IActionResult OnPost()
         {
