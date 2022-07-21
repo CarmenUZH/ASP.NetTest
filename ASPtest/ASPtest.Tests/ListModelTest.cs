@@ -17,7 +17,7 @@ namespace ASPtest.Tests
             var restaurantdata = new FakeData();
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddLogging();
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+            var serviceProvider = serviceCollection.BuildServiceProvider(); //Find way to not duplicate this code
             _logger = serviceProvider.GetService<ILogger<ListModel>>();
             var listModel = new ListModel( restaurantdata, _logger);
 
