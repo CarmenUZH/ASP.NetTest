@@ -7,7 +7,7 @@ namespace ASPtest.Tests
     public class ListModelTest
     {
         [TestMethod]
-        public void ListModel_GetsPeople()
+        public void ListModel_GetsPizzarias()
         {
             //Arrange
             var restaurantdata = new FakeData();
@@ -19,6 +19,23 @@ namespace ASPtest.Tests
             //Assert
             Assert.IsNotNull(listModel.Restaurants);
             Assert.AreEqual(3, listModel.Restaurants.Count());
+        }
+
+        [TestMethod]
+        public void ListModel_GetsOnePizzaria()
+        {
+            //Arrange
+            var restaurantdata = new FakeData();
+            var listModel = new ListModel(restaurantdata);
+
+            //Act
+            listModel.SearchTerm = "ONE";
+            listModel.OnGet();
+
+            //Assert
+            Assert.IsNotNull(listModel.Restaurants);
+            Assert.AreEqual(1, listModel.Restaurants.Count());
+            Assert.AreEqual("ONE", listModel.Restaurants.First().Name);
         }
     }
 }
