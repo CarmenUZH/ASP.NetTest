@@ -23,7 +23,7 @@ namespace ASPtest.Pages.Restaurants
         }
         public IActionResult OnGet()
         {
-            Restaurant = new Restaurant();
+            Restaurant = new Restaurant(); //Here the new keyword is acceptable because we really do just need a new Restaurant
             Restaurant.Location = "Somewhere";
             Restaurant.Food = FoodType.None;
             return Page();

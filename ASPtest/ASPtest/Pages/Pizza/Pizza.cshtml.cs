@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using OdeToFood.Data;
-using System.Collections.Generic;
 
 namespace ASPtest.Pages.Pizza
 {
@@ -16,7 +15,7 @@ namespace ASPtest.Pages.Pizza
         private readonly IConfiguration config;
 
         private readonly IHtmlHelper htmlHelper;
-       
+
         [BindProperty]
         public string pizza { get; set; }
 

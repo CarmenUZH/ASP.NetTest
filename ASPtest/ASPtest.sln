@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Core", "OdeToFood
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OdeToFood.Data", "OdeToFood.Data\OdeToFood.Data.csproj", "{BE866539-5AAF-4DEF-85E2-733E79EB6467}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{F33C5423-CBA8-4F6A-A78A-C14972815344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPtest.Tests", "ASPtest.Tests\ASPtest.Tests.csproj", "{B13EB7B2-0ACF-46AE-A7B7-6948A69B4E90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{BE866539-5AAF-4DEF-85E2-733E79EB6467}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE866539-5AAF-4DEF-85E2-733E79EB6467}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE866539-5AAF-4DEF-85E2-733E79EB6467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13EB7B2-0ACF-46AE-A7B7-6948A69B4E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13EB7B2-0ACF-46AE-A7B7-6948A69B4E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13EB7B2-0ACF-46AE-A7B7-6948A69B4E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13EB7B2-0ACF-46AE-A7B7-6948A69B4E90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B13EB7B2-0ACF-46AE-A7B7-6948A69B4E90} = {F33C5423-CBA8-4F6A-A78A-C14972815344}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0FC50C5-2BF6-4986-874D-0875602A890C}

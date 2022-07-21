@@ -10,7 +10,7 @@ namespace ASPtest.Pages.Restaurants
 {
     public class ListModel : PageModel //Use pagemodel to inject services that will give me access to data and then use it in List.cshtml
     {
-        private readonly IConfiguration config;
+        //private readonly IConfiguration config;
 
 
         public string Message { get; set; } //Information that the View is going to "consume" (public)
@@ -19,20 +19,20 @@ namespace ASPtest.Pages.Restaurants
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
         private readonly IRestaurantData restaurantData;
-        private readonly ILogger<ListModel> logger;
+        //private readonly ILogger<ListModel> logger;
 
-        public ListModel(IConfiguration config, IRestaurantData restaurantData, ILogger<ListModel> logger) //Page uses these services to fulfill the onGet Method
+        public ListModel( IRestaurantData restaurantData) //Page uses these services to fulfill the onGet Method
         {
-            this.config = config;
+            //this.config = config;
             this.restaurantData = restaurantData; //Don't forget to instantiate
-            this.logger = logger;
+            //this.logger = logger;
         }
 
         public void OnGet()//Move information from request into a model binder
         {
-            logger.LogError("Executing ListModel");
-            Message = "My Restaurant";
-            NewMessage = config["Message"];
+            //logger.LogError("Executing ListModel");
+            //Message = "My Restaurant";
+            //NewMessage = config["Message"];
             Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
         //Page Model is responsible for fetching information
