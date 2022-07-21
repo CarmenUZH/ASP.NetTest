@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OdeToFood.Data;
-using System;
 
 namespace ASPtest
 {
@@ -15,13 +14,13 @@ namespace ASPtest
 
             //Step between hosting and running
             MigrateDatabase(host);
-                
-                host.Run();
+
+            host.Run();
         }
 
         private static void MigrateDatabase(IHost host) //Get the Database
         {
-            using(var scope = host.Services.CreateScope())
+            using (var scope = host.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<OdeToFoodDbContext>();
                 db.Database.Migrate();
