@@ -59,5 +59,21 @@ namespace ASPtest.Tests
             Assert.AreEqual(true, pizzaModel.Pizzas.Contains(singlepizza));
         }
 
+        [TestMethod]
+        public void ShowPizzaModel_GetsPizzas()
+        {
+            //Arrange
+            var pizzasdata = new FakePizzas();
+            var pizzaModel = new ShowPizzasModel(pizzasdata);
+
+            //Act
+            pizzaModel.OnGet();
+
+            //Assert
+            Assert.IsNotNull(pizzaModel.Pizzas);
+            Assert.AreEqual(3, pizzaModel.Pizzas.Count);
+        }
+
+
     }
 }
